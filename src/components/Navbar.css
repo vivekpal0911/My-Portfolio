@@ -1,0 +1,55 @@
+.navbar {
+    background-color: transparent; /* Make navbar background transparent */
+    padding: 1.5rem 0; /* Adjust padding */
+    box-shadow: none; /* Remove box shadow */
+    position: absolute; /* Position over the hero section */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between brand and links */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.8rem; /* Larger font size */
+    font-weight: bold;
+    color: #ffffff; /* White color */
+    text-shadow: none; /* Remove text shadow */
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+.navbar-links li {
+    margin-left: 0; /* Remove left margin */
+}
+
+.navbar-links a {
+    color: #cccccc; /* Light gray color for links */
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    text-shadow: none; /* Remove text shadow */
+}
+
+.navbar-links a:hover {
+    color: #ffffff; /* White on hover */
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Subtle white glow on hover */
+}
+
+.navbar-brand .bracket {
+    color: #00f0ff; /* Cyan color for the brackets */
+} 

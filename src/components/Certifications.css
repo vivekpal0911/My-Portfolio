@@ -1,0 +1,84 @@
+.certifications-section {
+    background-color: #0a0a1e; /* Very dark blue background */
+    padding: 8rem 0; /* Consistent padding */
+    color: #e0e0e0;
+    overflow: hidden;
+}
+
+.certifications-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.certifications-section h2 {
+    color: #ffffff;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSmooth 1.2s ease-out forwards 0.3s;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax */
+    gap: 30px;
+}
+
+.certification-item {
+    background-color: #1a1a2c; /* Darker blue */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSmooth 1.2s ease-out forwards;
+    border-left: 4px solid #e74c3c; /* Reddish highlight border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.certification-item:hover {
+    transform: translateY(-8px); /* Subtle lift */
+    box-shadow: 5px 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.certification-item:nth-child(1) { animation-delay: 0.5s; }
+.certification-item:nth-child(2) { animation-delay: 0.7s; }
+.certification-item:nth-child(3) { animation-delay: 0.9s; }
+
+.certification-item .cert-name {
+    color: #00f0ff; /* Cyan highlight */
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.certification-item .cert-body {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.certification-item .cert-link,
+.certification-item .cert-link-placeholder {
+    display: inline-block;
+    color: #e74c3c; /* Reddish highlight */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.certification-item .cert-link:hover {
+    color: #c0392b;
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(192, 57, 43, 0.6);
+}
+
+@keyframes fadeInUpSmooth {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

@@ -1,0 +1,164 @@
+.hero-section {
+    background-color: transparent; /* Use global gradient background */
+    padding: 10rem 0; /* Increased padding for height */
+    color: #ffffff;
+    text-align: center; /* Center content */
+    overflow: hidden;
+    position: relative; /* Needed for absolute positioning of falling elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it takes at least full viewport height */
+}
+
+.hero-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative; /* Needed for z-index of content */
+    z-index: 1; /* Ensure content is above falling elements */
+}
+
+.hero-content.centered {
+    max-width: 800px; /* Limit width */
+    margin: 0 auto; /* Center content block */
+    text-align: center; /* Ensure text is centered within the block */
+}
+
+.greeting {
+    font-size: 1.8rem; /* Larger font size */
+    color: #cccccc; /* Lighter gray color */
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSmooth 1.2s ease-out forwards 0.4s;
+}
+
+.name {
+    font-size: 4.5rem; /* Larger font size */
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSmooth 1.2s ease-out forwards 0.6s;
+    white-space: nowrap; /* Prevent wrapping during typing */
+    display: inline-block; /* Needed for animation */
+}
+
+.name .cursor {
+    display: inline-block;
+    margin-left: 5px;
+    width: 3px;
+    background-color: #00f0ff; /* Cyan cursor color */
+    animation: blinkCursor 0.8s infinite steps(1);
+}
+
+.name .bracket {
+    color: #00f0ff; /* Cyan color for the brackets */
+}
+
+.title {
+    font-size: 2.5rem; /* Larger font size */
+    color: #b0b0b0; /* Slightly darker gray */
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSmooth 1.2s ease-out forwards 0.8s;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center icons */
+    gap: 25px; /* Space between icons */
+    margin-bottom: 3rem; /* Space below icons */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSmooth 1.2s ease-out forwards 1s;
+}
+
+.social-icons a {
+    color: #cccccc; /* Light gray color */
+    font-size: 1.8rem; /* Icon size */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #00f0ff; /* Cyan on hover */
+    transform: translateY(-5px); /* Subtle lift */
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem; /* Adjusted padding */
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 10px; /* Add margin between buttons */
+}
+
+.btn-primary {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: 2px solid #e74c3c;
+}
+
+.btn-primary:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #00f0ff;
+    border: 2px solid #00f0ff;
+}
+
+.btn-secondary:hover {
+    background-color: #00f0ff;
+    color: #1a1a2c; /* Darker blue text */
+    border-color: #00f0ff;
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInUpSmooth {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 8rem 0; /* Adjust padding */
+    }
+
+    .name {
+        font-size: 3rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+     .social-icons {
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+        margin: 0 5px; /* Adjust margin */
+    }
+
+    .falling-item {
+        width: 3px;
+        height: 30px;
+    }
+} 
