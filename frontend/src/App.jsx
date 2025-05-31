@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'; // We will create and use App.css for component-specific styles
 // import './index.css'; // We will keep index.css for global styles but clear its content initially
 import Navbar from './components/Navbar';
@@ -7,9 +8,10 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
-import Hobbies from './components/Hobbies';
-import Communication from './components/Communication';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { ThemeProvider } from './ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   // Demo: Fetch backend health status
@@ -23,33 +25,29 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <Hobbies />
-      <Communication />
-      <Contact />
-      {/* Demo: Show backend health status */}
-      <div style={{ margin: '2rem', color: '#00f0ff', fontWeight: 'bold' }}>
-        Backend Health: {health ? JSON.stringify(health) : 'Checking...'}
-      </div>
-      <div className="falling-elements">
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-        <div className="falling-item"></div>
-      </div>
-    </div>
+    <ThemeProvider>
+      <Router>
+        <div className="logo-fixed-left">
+          <img src="/Vivek logo.png" alt="Vivek Logo" />
+        </div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<div className="section-fade"><About /></div>} />
+          <Route path="/skills" element={<div className="section-fade"><Skills /></div>} />
+          <Route path="/projects" element={<div className="section-fade"><Projects /></div>} />
+          <Route path="/certifications" element={<div className="section-fade"><Certifications /></div>} />
+          <Route path="/contact" element={<div className="section-fade"><Contact /></div>} />
+        </Routes>
+        <Footer />
+        <ThemeToggle />
+        <div className="falling-elements">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div className="falling-item" key={i}></div>
+          ))}
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

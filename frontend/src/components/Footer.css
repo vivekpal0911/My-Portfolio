@@ -1,0 +1,45 @@
+.footer-main {
+  width: 100vw;
+  background: var(--card-bg);
+  color: var(--text-main);
+  padding: 1.2rem 0 1.2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 900;
+  font-size: 1rem;
+  box-shadow: 0 -2px 12px var(--accent)11;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+}
+.footer-social a {
+  color: var(--text-main);
+  font-size: 1.3rem;
+  transition: color 0.2s;
+}
+.footer-social a:hover {
+  color: var(--accent);
+}
+@media (max-width: 800px) {
+  .footer-main {
+    font-size: 0.85rem;
+    padding: 0.7rem 0;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .footer-social a {
+    font-size: 1rem;
+  }
+} 

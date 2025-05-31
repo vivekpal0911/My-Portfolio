@@ -1,83 +1,102 @@
-.navbar {
-    background-color: transparent; /* Make navbar background transparent */
-    padding: 1.5rem 0; /* Adjust padding */
-    box-shadow: none; /* Remove box shadow */
-    position: absolute; /* Position over the hero section */
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100; /* Ensure it's above other content */
+/* Fixed Logo on Left Top */
+.logo-fixed-left {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 1100;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-fixed-left img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 2px 16px var(--accent)33;
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between; /* Distribute space between brand and links */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+/* Minimalistic Right Sidebar Navbar Styles */
+.sidebar-navbar.sidebar-right {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  left: unset;
+  transform: translateY(-50%);
+  height: auto;
+  width: 64px;
+  background: var(--card-bg);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  padding: 1.2rem 0;
+  border-radius: 2rem;
+  border: none;
 }
 
-.navbar-brand {
-    font-size: 1.8rem; /* Larger font size */
-    font-weight: bold;
-    color: #ffffff; /* White color */
-    text-shadow: none; /* Remove text shadow */
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  align-items: center;
+}
+.sidebar-links li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.sidebar-links a {
+  color: var(--text-main);
+  font-size: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  transition: background 0.18s, color 0.18s;
+  border: none;
+  background: transparent;
+}
+.sidebar-links a.active, .sidebar-links a:hover {
+  color: var(--accent);
+  background: var(--accent)10;
 }
 
-.navbar-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px; /* Space between links */
-}
-
-.navbar-links li {
-    margin-left: 0; /* Remove left margin */
-}
-
-.navbar-links a {
-    color: #cccccc; /* Light gray color for links */
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-    text-shadow: none; /* Remove text shadow */
-}
-
-.navbar-links a:hover {
-    color: #ffffff; /* White on hover */
-    text-decoration: none;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Subtle white glow on hover */
-}
-
-.navbar-brand .bracket {
-    color: #00f0ff; /* Cyan color for the brackets */
-}
-
-@media (max-width: 600px) {
-  .navbar {
-    padding: 1rem 0;
-    position: static;
+@media (max-width: 800px) {
+  .logo-fixed-left, .logo-fixed-left img {
+    width: 36px;
+    height: 36px;
+    top: 0.7rem;
+    left: 0.7rem;
   }
-  .navbar .container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 0.5rem;
+  .sidebar-navbar.sidebar-right {
+    width: 44px;
+    padding: 0.7rem 0;
+    right: 0.7rem;
+    border-radius: 1rem;
   }
-  .navbar-brand {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  .navbar-links {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    align-items: flex-start;
-  }
-  .navbar-links a {
+  .sidebar-links a {
+    width: 28px;
+    height: 28px;
     font-size: 1rem;
-    padding: 0.5rem 0;
-    display: block;
-    width: 100%;
+    border-radius: 6px;
   }
-} 
+  .sidebar-links {
+    gap: 0.7rem;
+  }
+}
+
+/* Remove old horizontal navbar styles if not needed */
+.navbar, .navbar .container, .navbar-brand, .navbar-links {
+  display: none !important;
+}

@@ -25,11 +25,11 @@ a:hover {
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(180deg, #0a0a1e 0%, #1a0c2f 100%); /* Dark gradient background */
+  background: linear-gradient(135deg, #0a0a1e 0%, #1a0c2f 100%);
   color: #e0e0e0;
   line-height: 1.6;
-  min-height: 100vh; /* Ensure gradient covers full viewport height */
-  background-attachment: fixed; /* Keep background fixed on scroll */
+  min-height: 100vh;
+  background-attachment: fixed;
   animation: none !important;
 }
 
@@ -113,39 +113,65 @@ body {
 
 /* Falling Animation - Global */
 .falling-elements {
-    position: fixed; /* Fixed to cover the entire viewport */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     overflow: hidden;
-    z-index: -1; /* Below content */
+    z-index: -1;
 }
 
 .falling-item {
     position: absolute;
-    width: 3px; /* Slightly thinner */
-    height: 30px; /* Slightly shorter */
-    background-color: rgba(0, 240, 255, 0.4); /* Cyan with more transparency */
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(180deg, #00f0ff 0%, rgba(0,240,255,0.1) 100%);
+    opacity: 0.7;
     bottom: 100%;
+    border-radius: 2px;
     animation: falling linear infinite;
 }
 
-/* Increase frequency and vary positions/delays */
-.falling-item:nth-child(1) { left: 5%; animation-duration: 6s; animation-delay: 0s; }
-.falling-item:nth-child(2) { left: 15%; animation-duration: 7s; animation-delay: 1s; }
-.falling-item:nth-child(3) { left: 25%; animation-duration: 5s; animation-delay: 2s; }
-.falling-item:nth-child(4) { left: 35%; animation-duration: 8s; animation-delay: 3s; }
-.falling-item:nth-child(5) { left: 45%; animation-duration: 6s; animation-delay: 4s; }
-.falling-item:nth-child(6) { left: 55%; animation-duration: 7s; animation-delay: 5s; }
-.falling-item:nth-child(7) { left: 65%; animation-duration: 5s; animation-delay: 6s; }
-.falling-item:nth-child(8) { left: 75%; animation-duration: 8s; animation-delay: 7s; }
-.falling-item:nth-child(9) { left: 85%; animation-duration: 6s; animation-delay: 8s; }
-.falling-item:nth-child(10) { left: 95%; animation-duration: 7s; animation-delay: 9s; }
+/* 20 falling lines with different positions, speeds, and delays */
+.falling-item:nth-child(1) { left: 5%; animation-duration: 4s; animation-delay: 0s; }
+.falling-item:nth-child(2) { left: 10%; animation-duration: 5s; animation-delay: 1s; }
+.falling-item:nth-child(3) { left: 15%; animation-duration: 6s; animation-delay: 2s; }
+.falling-item:nth-child(4) { left: 20%; animation-duration: 4.5s; animation-delay: 1.5s; }
+.falling-item:nth-child(5) { left: 25%; animation-duration: 5.5s; animation-delay: 2.5s; }
+.falling-item:nth-child(6) { left: 30%; animation-duration: 6.5s; animation-delay: 0.5s; }
+.falling-item:nth-child(7) { left: 35%; animation-duration: 4.2s; animation-delay: 2.2s; }
+.falling-item:nth-child(8) { left: 40%; animation-duration: 5.8s; animation-delay: 1.8s; }
+.falling-item:nth-child(9) { left: 45%; animation-duration: 6.2s; animation-delay: 0.8s; }
+.falling-item:nth-child(10) { left: 50%; animation-duration: 4.7s; animation-delay: 2.7s; }
+.falling-item:nth-child(11) { left: 55%; animation-duration: 5.3s; animation-delay: 1.3s; }
+.falling-item:nth-child(12) { left: 60%; animation-duration: 6.1s; animation-delay: 2.1s; }
+.falling-item:nth-child(13) { left: 65%; animation-duration: 4.9s; animation-delay: 0.9s; }
+.falling-item:nth-child(14) { left: 70%; animation-duration: 5.7s; animation-delay: 1.7s; }
+.falling-item:nth-child(15) { left: 75%; animation-duration: 6.3s; animation-delay: 2.3s; }
+.falling-item:nth-child(16) { left: 80%; animation-duration: 4.3s; animation-delay: 1.1s; }
+.falling-item:nth-child(17) { left: 85%; animation-duration: 5.9s; animation-delay: 2.9s; }
+.falling-item:nth-child(18) { left: 90%; animation-duration: 6.7s; animation-delay: 0.7s; }
+.falling-item:nth-child(19) { left: 95%; animation-duration: 4.1s; animation-delay: 1.9s; }
+.falling-item:nth-child(20) { left: 98%; animation-duration: 5.5s; animation-delay: 2.5s; }
 
 @keyframes falling {
     to {
-        transform: translateY(100vh);
+        transform: translateY(110vh);
     }
+}
+
+/* Section fade-in animation utility */
+.section-fade {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: sectionFadeIn 1s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@keyframes sectionFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

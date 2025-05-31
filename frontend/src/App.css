@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+:root {
+  --bg-main: #0a0a1e;
+  --text-main: #e0e0e0;
+  --accent: #00f0ff;
+  --card-bg: #1a1a2c;
+  --card-border: #23243a;
+}
+[data-theme="light"] {
+  --bg-main: #f7f7fa;
+  --text-main: #23243a;
+  --accent: #e74c3c;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+}
+[data-theme="dark"] {
+  --bg-main: #0a0a1e;
+  --text-main: #e0e0e0;
+  --accent: #00f0ff;
+  --card-bg: #1a1a2c;
+  --card-border: #23243a;
+}
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition: background 0.3s, color 0.3s;
+}
+.hero-section, .about-section, .skills-section, .projects-section, .certifications-section, .contact-section {
+  background: var(--bg-main);
+  color: var(--text-main);
+}

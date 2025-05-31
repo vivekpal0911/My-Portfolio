@@ -1,7 +1,7 @@
 .projects-section {
-    background-color: #0a0a1e; /* Very dark blue background */
-    padding: 8rem 0; /* Consistent padding */
-    color: #e0e0e0;
+    background: var(--bg-main);
+    padding: 8rem 0;
+    color: var(--text-main);
     overflow: hidden;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .projects-section h2 {
-    color: #ffffff;
+    color: var(--text-main);
     font-size: 3rem;
     margin-bottom: 4rem;
     opacity: 0;
@@ -28,21 +28,21 @@
 }
 
 .project-item {
-    background-color: #1a1a2c; /* Darker blue */
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 10px;
     text-align: left;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUpSmooth 1.2s ease-out forwards;
-    border: 1px solid #2e2e4f; /* Subtle border */
+    border: 1px solid var(--card-border);
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px var(--card-border)33;
 }
 
 .project-item:hover {
     transform: translateY(-12px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px var(--accent)33;
 }
 
 .project-item:nth-child(1) { animation-delay: 0.5s; }
@@ -50,13 +50,13 @@
 /* Add more delays if you have more than 2 projects */
 
 .project-item h3 {
-    color: #00f0ff; /* Cyan highlight */
+    color: var(--accent);
     font-size: 1.6rem;
     margin-bottom: 10px;
 }
 
 .project-item .tech-stack {
-    color: #b0b0b0;
+    color: var(--text-main);
     font-size: 0.95rem;
     margin-bottom: 15px;
 }
@@ -68,7 +68,7 @@
 }
 
 .project-item li {
-    color: #cccccc;
+    color: var(--text-main);
     font-size: 1.05rem;
     margin-bottom: 8px;
 }
@@ -76,17 +76,17 @@
 .project-links a {
     display: inline-block;
     margin-right: 20px;
-    color: #e74c3c; /* Reddish highlight */
+    color: var(--accent);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease, text-shadow 0.3s ease;
-    text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+    text-shadow: 0 0 5px var(--accent)33;
 }
 
 .project-links a:hover {
     color: #c0392b;
     text-decoration: underline;
-    text-shadow: 0 0 10px rgba(192, 57, 43, 0.6);
+    text-shadow: 0 0 10px var(--accent)66;
 }
 
 @keyframes fadeInUpSmooth {
