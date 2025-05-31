@@ -161,4 +161,38 @@
         width: 3px;
         height: 30px;
     }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 4rem 0;
+    min-height: unset;
+  }
+  .hero-section .container {
+    padding: 0 0.5rem;
+  }
+  .hero-content.centered {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  .greeting {
+    font-size: 1.1rem;
+  }
+  .name {
+    font-size: 2rem;
+  }
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .social-icons {
+    gap: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    margin: 0 2px;
+  }
 } 

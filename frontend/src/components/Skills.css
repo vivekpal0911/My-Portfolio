@@ -66,4 +66,27 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media (max-width: 600px) {
+  .skills-section {
+    padding: 3rem 0;
+  }
+  .skills-section .container {
+    padding: 0 0.5rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .skill-category {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  .skill-category h3 {
+    font-size: 1.1rem;
+  }
+  .skill-category p {
+    font-size: 0.95rem;
+  }
 } 

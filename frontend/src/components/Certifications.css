@@ -81,4 +81,31 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media (max-width: 600px) {
+  .certifications-section {
+    padding: 3rem 0;
+  }
+  .certifications-section .container {
+    padding: 0 0.5rem;
+  }
+  .certifications-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .certification-item {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  .certification-item .cert-name {
+    font-size: 1.1rem;
+  }
+  .certification-item .cert-body {
+    font-size: 0.95rem;
+  }
 } 

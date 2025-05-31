@@ -53,4 +53,21 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 3rem 0;
+  }
+  .contact-section .container {
+    padding: 0 0.5rem;
+  }
+  .contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .contact-info p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
 } 

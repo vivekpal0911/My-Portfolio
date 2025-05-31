@@ -57,4 +57,24 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media (max-width: 600px) {
+  .communication-section {
+    padding: 3rem 0;
+  }
+  .communication-section .container {
+    padding: 0 0.5rem;
+  }
+  .communication-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .communication-list {
+    gap: 10px;
+  }
+  .language-item {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
 } 
