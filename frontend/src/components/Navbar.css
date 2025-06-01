@@ -100,3 +100,185 @@
 .navbar, .navbar .container, .navbar-brand, .navbar-links {
   display: none !important;
 }
+
+/* --- FAB Mobile Navbar Styles --- */
+.fab-navbar {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .sidebar-navbar.sidebar-right {
+    display: none !important;
+  }
+  .theme-navbar-btn-wrapper {
+    position: fixed;
+    top: 2.2rem;
+    right: 1.2rem;
+    z-index: 1300;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  .fab-navbar, .fab-menu {
+    display: none !important;
+  }
+
+  /* --- Mobile Drawer Styles --- */
+  .mobile-drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 65vw;
+    height: 100vh;
+    background: var(--card-bg, #18192a);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    animation: drawerFadeIn 0.25s;
+    right: 0;
+    left: auto;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    box-shadow: -8px 0 32px 0 var(--accent)11;
+  }
+  @keyframes drawerFadeIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+    width: 100%;
+  }
+  .mobile-drawer-logo {
+    height: 44px;
+    width: 44px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 2px 12px var(--accent)22;
+  }
+  .mobile-drawer-close {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 2.2rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 50%;
+    transition: background 0.18s;
+  }
+  .mobile-drawer-close:hover {
+    background: var(--accent)11;
+  }
+  .mobile-drawer-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 2.5rem;
+    gap: 2.2rem;
+    width: 100%;
+  }
+  .mobile-drawer-links li {
+    list-style: none;
+  }
+  .mobile-drawer-links a {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.18s;
+    text-decoration: none;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    display: block;
+  }
+  .mobile-drawer-links a.active, .mobile-drawer-links a:hover {
+    color: var(--accent);
+    background: var(--accent)08;
+  }
+}
+
+.theme-navbar-btn-wrapper {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+}
+.theme-fab-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 60%, #1e90ff 100%);
+  color: var(--bg-main);
+  border: none;
+  box-shadow: 0 4px 16px var(--accent)33;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.18s, box-shadow 0.18s;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+.theme-fab-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px var(--accent)44;
+}
+.theme-fab-btn:hover {
+  background: linear-gradient(135deg, #1e90ff 0%, var(--accent) 100%);
+  color: var(--accent);
+  box-shadow: 0 6px 18px var(--accent)44;
+}
+@media (max-width: 800px) {
+  .theme-navbar-btn-wrapper {
+    position: fixed;
+    top: 2.2rem;
+    right: 1.2rem;
+    z-index: 1300;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  .fab-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    position: static;
+    margin-left: 0;
+  }
+}
+
+/* Hide mobile-only elements on desktop */
+@media (min-width: 801px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Desktop only utility class */
+@media (max-width: 800px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+@media (min-width: 801px) {
+  .desktop-only {
+    display: flex !important;
+    position: fixed;
+    top: 2.2rem;
+    right: 1.2rem;
+    z-index: 1300;
+    align-items: center;
+  }
+}

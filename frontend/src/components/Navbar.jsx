@@ -1,45 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import { FaHome, FaUser, FaBriefcase, FaCode, FaCertificate, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUser, FaBriefcase, FaCode, FaCertificate, FaEnvelope, FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
+import { useTheme } from '../ThemeContext';
 
 function Navbar() {
   const location = useLocation();
-  return (
-    <nav className="sidebar-navbar sidebar-right">
-      <ul className="sidebar-links">
-        <li>
-          <Link to="/" className={location.pathname === '/' ? 'active' : ''} title="Home">
-            <FaHome />
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} title="About">
-            <FaUser />
-          </Link>
-        </li>
-        <li>
-          <Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''} title="Projects">
-            <FaBriefcase />
-          </Link>
-        </li>
-        <li>
-          <Link to="/skills" className={location.pathname === '/skills' ? 'active' : ''} title="Technical Skills">
-            <FaCode />
-          </Link>
-        </li>
-        <li>
-          <Link to="/certifications" className={location.pathname === '/certifications' ? 'active' : ''} title="Certifications">
-            <FaCertificate />
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} title="Contact">
-            <FaEnvelope />
-          </Link>
-        </li>
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  // Helper for nav links
+  const navLinks = [
+    { to: '/', icon: <FaHome />, title: 'Home' },
+    { to: '/about', icon: <FaUser />, title: 'About' },
+    { to: '/projects', icon: <FaBriefcase />, title: 'Projects' },
+    { to: '/skills', icon: <FaCode />, title: 'Technical Skills' },
+    { to: '/certifications', icon: <FaCertificate />, title: 'Certifications' },
+    { to: '/contact', icon: <FaEnvelope />, title: 'Contact' },
+  ];
+
+  // Mobile drawer menu
+  const MobileDrawer = () => (
+    <div className="mobile-drawer-overlay mobile-only">
+      <div className="mobile-drawer-header">
+        <img src="/Vivek logo.png" alt="Logo" className="mobile-drawer-logo" />
+        <button className="mobile-drawer-close" onClick={() => setDrawerOpen(false)} aria-label="Close menu">
+          <FaTimes />
+        </button>
+      </div>
+      <ul className="mobile-drawer-links">
+        {navLinks.map((link) => (
+          <li key={link.to}>
+            <Link
+              to={link.to}
+              className={location.pathname === link.to ? 'active' : ''}
+              onClick={() => setDrawerOpen(false)}
+            >
+              {link.title}
+            </Link>
+          </li>
+        ))}
       </ul>
-    </nav>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Theme Toggle Button - Desktop Only */}
+      <div className="theme-navbar-btn-wrapper desktop-only">
+        <button
+          className="theme-fab-btn"
+          aria-label="Toggle theme"
+          onClick={toggleTheme}
+        >
+          {theme === 'dark' ? <FaSun /> : <FaMoon />}
+        </button>
+      </div>
+      {/* Nav Toggle - Only Mobile */}
+      <div className="theme-navbar-btn-wrapper mobile-only">
+        <button
+          className="fab-btn"
+          aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setDrawerOpen((open) => !open)}
+        >
+          {drawerOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+      {/* Desktop Sidebar Navbar */}
+      <nav className="sidebar-navbar sidebar-right">
+        <ul className="sidebar-links">
+          {navLinks.map((link) => (
+            <li key={link.to}>
+              <Link to={link.to} className={location.pathname === link.to ? 'active' : ''} title={link.title}>
+                {link.icon}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Mobile Drawer (only on mobile) */}
+      {drawerOpen && <MobileDrawer />}
+    </>
   );
 }
 

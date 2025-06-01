@@ -11,7 +11,6 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ThemeProvider } from './ThemeContext';
-import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   // Demo: Fetch backend health status
@@ -40,7 +39,6 @@ function App() {
           <Route path="/contact" element={<div className="section-fade"><Contact /></div>} />
         </Routes>
         <Footer />
-        <ThemeToggle />
         <div className="falling-elements">
           {Array.from({ length: 20 }).map((_, i) => (
             <div className="falling-item" key={i}></div>
