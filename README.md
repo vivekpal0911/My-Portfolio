@@ -55,7 +55,7 @@ npm run dev
    - Build Command: `cd frontend && npm install && npm run build`
    - Publish Directory: `frontend/dist`
    - Environment Variables:
-     - `VITE_BACKEND_URL`: Your backend URL (e.g., https://my-portfolio-backend.onrender.com)
+     - `VITE_API_URL`: Your backend URL (e.g., https://my-portfolio-backend.onrender.com)
 
 ## Environment Variables
 
@@ -64,4 +64,5 @@ npm run dev
 - `NODE_ENV`: Environment (development/production)
 
 ### Frontend
-- `VITE_BACKEND_URL`: Backend API URL
+- `VITE_API_URL`: Backend API URL
+- `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY`: optional EmailJS credentials. If omitted, the contact form opens the visitor's email app with the message prefilled.

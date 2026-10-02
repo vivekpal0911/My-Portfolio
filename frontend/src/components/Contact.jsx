@@ -1,37 +1,42 @@
 import React, { useRef, useState } from 'react';
 import './Contact.css';
 import { FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
-// import emailjs from '@emailjs/browser'; // Uncomment after installing emailjs-com
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_CONFIG = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+};
 
 function Contact() {
   const form = useRef();
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Uncomment and configure after installing emailjs-com and setting up EmailJS
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-  //     .then((result) => {
-  //         setStatus('Message sent successfully!');
-  //         setLoading(false);
-  //         form.current.reset();
-  //     }, (error) => {
-  //         setStatus('Failed to send message. Please try again.');
-  //         setLoading(false);
-  //     });
-  // };
-
-  // Demo handler (remove after EmailJS setup)
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setStatus('Message sent successfully! (Demo)');
+
+    try {
+      const { serviceId, templateId, publicKey } = EMAILJS_CONFIG;
+      if (serviceId && templateId && publicKey) {
+        await emailjs.sendForm(serviceId, templateId, form.current, publicKey);
+        setStatus('Message sent successfully!');
+        form.current.reset();
+      } else {
+        const data = new FormData(form.current);
+        const subject = encodeURIComponent(`Portfolio enquiry from ${data.get('user_name')}`);
+        const body = encodeURIComponent(`Name: ${data.get('user_name')}\nEmail: ${data.get('user_email')}\n\n${data.get('message')}`);
+        window.location.href = `mailto:vivekpal0911@gmail.com?subject=${subject}&body=${body}`;
+        setStatus('Your email app has been opened with your message.');
+      }
+    } catch {
+      setStatus('Unable to send the message. Please email vivekpal0911@gmail.com directly.');
+    } finally {
       setLoading(false);
-      form.current.reset();
-    }, 1200);
+      window.setTimeout(() => setStatus(''), 5000);
+    }
   };
 
   return (
@@ -53,11 +58,11 @@ function Contact() {
           <button type="submit" className="contact-btn" disabled={loading}>
             <FaPaperPlane style={{marginRight: '8px'}} /> {loading ? 'Sending...' : 'Send Message'}
           </button>
-          {status && <div className="form-status">{status}</div>}
+          {status && <div className={`form-status ${status.includes('Unable') ? 'error' : 'success'}`}>{status}</div>}
         </form>
       </div>
     </section>
   );
 }
 
-export default Contact; 
+export default Contact;

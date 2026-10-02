@@ -84,12 +84,12 @@
     border-radius: 8px;
     border-left: 4px solid var(--accent);
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 12px var(--accent)08;
+    box-shadow: 0 2px 12px rgba(168, 85, 247, 0.03);
 }
 
 .service-item:hover {
     transform: translateX(-6px) scale(1.03);
-    box-shadow: 0 4px 18px var(--accent)22;
+    box-shadow: 0 4px 18px rgba(168, 85, 247, 0.13);
 }
 
 .service-icon {

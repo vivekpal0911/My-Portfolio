@@ -1,11 +1,20 @@
 import React from 'react';
 import './Projects.css';
+import { FaReact, FaNodeJs } from 'react-icons/fa';
+import { SiMongodb, SiExpress } from 'react-icons/si';
+import lifelineImg from '../assets/lifeline360.png';
+import adsenseImg from '../assets/adsense.png';
 
 function Projects() {
   const projects = [
     {
       title: "Adsense: Connecting Brands with Influencers",
-      techStack: "React JS, Node JS, MongoDB Atlas",
+      image: adsenseImg,
+      techStack: [
+        { name: "React JS", icon: <FaReact color="#61DAFB" /> },
+        { name: "Node JS", icon: <FaNodeJs color="#339933" /> },
+        { name: "MongoDB", icon: <SiMongodb color="#47A248" /> }
+      ],
       description: [
         "Developed a full-stack web platform connecting brands with social media influencers",
         "Integrated user authentication and profile management for both companies and influencers",
@@ -14,12 +23,17 @@ function Projects() {
         "Optimized backend performance for fast matchmaking and scalable growth.",
         "Designed a responsive, SEO-friendly UI using vanilla CSS and modern web practices."
       ],
-      liveLink: "#", // Placeholder
-      githubLink: "#" // Placeholder
+      liveLink: null,
+      githubLink: null,
     },
     {
       title: "LifeLine360*: An Modern HealthCare System",
-      techStack: "React JS, Node JS, MongoDB Atlas",
+      image: lifelineImg,
+      techStack: [
+        { name: "React JS", icon: <FaReact color="#61DAFB" /> },
+        { name: "Node JS", icon: <FaNodeJs color="#339933" /> },
+        { name: "MongoDB", icon: <SiMongodb color="#47A248" /> }
+      ],
       description: [
         "Collaborated in a team to develop Lifeline360, an all-in-one healthcare platform for patient support and medical services.",
         "Led the frontend development, implementing responsive and user-friendly interfaces using React JS.",
@@ -27,8 +41,8 @@ function Projects() {
         "Ensured cross-device compatibility and accessibility for a wide range of healthcare users.",
         "Used version control (Git) and participated in regular code reviews and agile sprints."
       ],
-      liveLink: "#", // Placeholder
-      githubLink: "#" // Placeholder
+      liveLink: null,
+      githubLink: null,
     }
   ];
 
@@ -39,16 +53,29 @@ function Projects() {
         <div className="projects-grid">
           {projects.map((project, index) => (
             <div className="project-item" key={index}>
-              <h3>{project.title}</h3>
-              <p className="tech-stack">{project.techStack}</p>
-              <ul>
-                {project.description.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-              <div className="project-links">
-                <a href={project.liveLink} target="_blank" rel="noopener noreferrer">LIVE</a>
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">GITHUB</a>
+              <div className="project-image-container">
+                <img src={project.image} alt={project.title} className="project-image" />
+              </div>
+              <div className="project-content">
+                <h3>{project.title}</h3>
+                <div className="tech-stack">
+                  {project.techStack.map((tech, i) => (
+                    <span key={i} className="tech-badge" title={tech.name}>
+                      {tech.icon}
+                    </span>
+                  ))}
+                </div>
+                <ul>
+                  {project.description.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+                {(project.liveLink || project.githubLink) && (
+                  <div className="project-links">
+                    {project.liveLink && <a href={project.liveLink} target="_blank" rel="noopener noreferrer">LIVE</a>}
+                    {project.githubLink && <a href={project.githubLink} target="_blank" rel="noopener noreferrer">GITHUB</a>}
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -58,4 +85,4 @@ function Projects() {
   );
 }
 
-export default Projects; 
+export default Projects;

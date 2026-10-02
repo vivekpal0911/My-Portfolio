@@ -1,0 +1,54 @@
+.github-stats-section {
+    padding: 4rem 0;
+    background: var(--bg-main);
+    text-align: center;
+}
+
+.github-stats-section h2 {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.github-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.github-card {
+    transition: transform 0.3s ease;
+}
+
+.github-card:hover {
+    transform: scale(1.05);
+}
+
+.github-img {
+    height: 180px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.github-calendar {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.github-calendar-img {
+    width: 100%;
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    .github-img {
+        height: auto;
+        width: 100%;
+    }
+}

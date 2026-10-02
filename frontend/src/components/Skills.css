@@ -1,5 +1,5 @@
 .skills-section {
-    background: radial-gradient(ellipse at 60% 60%, var(--accent)08 0%, var(--bg-main) 80%);
+    background: radial-gradient(ellipse at 60% 60%, rgba(168, 85, 247, 0.08) 0%, var(--bg-main) 80%);
     min-height: 100vh;
     padding: 6rem 0 5rem 0;
     color: var(--text-main);
@@ -51,7 +51,7 @@
 }
 
 .skill-card {
-    background: rgba(30, 32, 54, 0.72);
+    background: rgba(17, 13, 17, 0.72);
     border-radius: 18px;
     box-shadow: 0 4px 24px #00f0ff11;
     padding: 2.1rem 2rem 1.5rem 2rem;

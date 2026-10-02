@@ -1,13 +1,16 @@
-import React from 'react';
-import './Skills.css';
-import { FaCode, FaCubes, FaTools, FaDatabase } from 'react-icons/fa';
+import React from "react";
+import "./Skills.css";
+import { FaCode, FaCubes, FaTools, FaDatabase } from "react-icons/fa";
 
 function Skills() {
   return (
-    <section className="skills-section">
+    <section id="skills" className="skills-section">
       <div className="container">
         <h2>Technical Skills</h2>
-        <div className="subtitle">Here's a collection of my core technical skills and tools I use in my projects.</div>
+        <div className="subtitle">
+          Here's a collection of my core technical skills and tools I use in my
+          projects.
+        </div>
         <div className="skills-grid">
           <div className="skill-card">
             <FaCode className="skill-icon" />
@@ -27,7 +30,9 @@ function Skills() {
           <div className="skill-card">
             <FaDatabase className="skill-icon" />
             <div className="skill-title">Familiar</div>
-            <div className="skill-desc">Mongo DB, PowerShell scripting, Operating System</div>
+            <div className="skill-desc">
+              Mongo DB, PowerShell scripting, Operating System
+            </div>
           </div>
         </div>
       </div>
@@ -35,4 +40,4 @@ function Skills() {
   );
 }
 
-export default Skills; 
+export default Skills;
