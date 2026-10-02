@@ -127,7 +127,7 @@ function Navbar() {
             {theme === 'dark' ? <FaSun /> : <FaMoon />}
           </button>
           <a
-            href="/Resume.pdf"
+            href="/Vivek%20Kumar%20Pal%20Resume.pdf"
             download="Vivek_Kumar_Pal_Resume.pdf"
             className="navbar__icon-btn navbar__resume-btn"
             aria-label="Download Resume"
@@ -169,7 +169,7 @@ function Navbar() {
             <button className="navbar__icon-btn" onClick={toggleTheme} aria-label="Toggle theme">
               {theme === 'dark' ? <FaSun /> : <FaMoon />}
             </button>
-            <a href="/Resume.pdf" download="Vivek_Kumar_Pal_Resume.pdf" className="navbar__icon-btn" aria-label="Download Resume">
+            <a href="/Vivek%20Kumar%20Pal%20Resume.pdf" download="Vivek_Kumar_Pal_Resume.pdf" className="navbar__icon-btn" aria-label="Download Resume">
               <FaFileDownload />
             </a>
           </div>

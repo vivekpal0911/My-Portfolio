@@ -11,7 +11,7 @@ import "./Hero.css";
 function Hero() {
   const handleResumeDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Resume.pdf";
+    link.href = "/Vivek%20Kumar%20Pal%20Resume.pdf";
     link.download = "Vivek_Kumar_Pal_Resume.pdf";
     document.body.appendChild(link);
     link.click();

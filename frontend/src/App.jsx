@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import './index.css';
 import Navbar from './components/Navbar';
@@ -11,9 +11,9 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Experience from './components/Experience';
-import GitHubStats from './components/GitHubStats';
-import Testimonials from './components/Testimonials';
+import PetDog from './components/PetDog';
 import { ThemeProvider } from './ThemeContext';
+import './Minimal.css';
 
 function HomePage() {
   return (
@@ -24,8 +24,6 @@ function HomePage() {
       <Experience />
       <Skills />
       <Certifications />
-      <GitHubStats />
-      <Testimonials />
       <Contact />
     </>
   );
@@ -71,24 +69,11 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        {/* Ambient Background Glow */}
-        <div className="ambient-bg" aria-hidden="true">
-          <div className="ambient-glow ambient-glow--purple"></div>
-          <div className="ambient-glow ambient-glow--pink"></div>
-          <div className="ambient-glow ambient-glow--rose"></div>
-        </div>
-
         <Navbar />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/certifications" element={<Certifications />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+          <HomePage />
         </main>
+        <PetDog />
         <Footer />
       </Router>
     </ThemeProvider>

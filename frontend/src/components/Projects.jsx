@@ -1,7 +1,7 @@
 import React from 'react';
 import './Projects.css';
 import { FaReact, FaNodeJs } from 'react-icons/fa';
-import { SiMongodb, SiExpress } from 'react-icons/si';
+import { SiMongodb } from 'react-icons/si';
 import lifelineImg from '../assets/lifeline360.png';
 import adsenseImg from '../assets/adsense.png';
 
@@ -16,12 +16,9 @@ function Projects() {
         { name: "MongoDB", icon: <SiMongodb color="#47A248" /> }
       ],
       description: [
-        "Developed a full-stack web platform connecting brands with social media influencers",
-        "Integrated user authentication and profile management for both companies and influencers",
-        "Implemented a campaign creation and bidding system to match businesses with suitable influencers",
-        "Built a real-time dashboard to track campaign performance, reach, and engagement metrics.",
-        "Optimized backend performance for fast matchmaking and scalable growth.",
-        "Designed a responsive, SEO-friendly UI using vanilla CSS and modern web practices."
+        "A full-stack platform that connects brands with social-media influencers.",
+        "Includes authentication, profile management, campaign bidding, and analytics.",
+        "Designed for a responsive, SEO-friendly experience."
       ],
       liveLink: null,
       githubLink: null,
@@ -35,11 +32,9 @@ function Projects() {
         { name: "MongoDB", icon: <SiMongodb color="#47A248" /> }
       ],
       description: [
-        "Collaborated in a team to develop Lifeline360, an all-in-one healthcare platform for patient support and medical services.",
-        "Led the frontend development, implementing responsive and user-friendly interfaces using React JS.",
-        "Built key modules including appointment booking, health records dashboard, and doctor-patient chat UI.",
-        "Ensured cross-device compatibility and accessibility for a wide range of healthcare users.",
-        "Used version control (Git) and participated in regular code reviews and agile sprints."
+        "A team-built healthcare platform for patient support and medical services.",
+        "Led responsive React interfaces for booking, health records, and chat.",
+        "Built with accessibility and cross-device use in mind."
       ],
       liveLink: null,
       githubLink: null,
